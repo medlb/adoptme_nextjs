@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Heart, Users, Sparkles, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "🌟 About Us - The Coolest Pet Team Ever! 🌟",
-  description: "🎉 Learn about ReceivePets and our super fun mission to make adoptme pet adoption AMAZING for kids! 🐾",
+  title: "About Us - The Coolest Pet Team Ever!",
+  description: "Learn about ReceivePets and our super fun mission to make adoptme pet adoption AMAZING for kids! 🐾",
 }
 
 export default function AboutPage() {
