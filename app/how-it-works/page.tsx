@@ -5,8 +5,8 @@ import Link from "next/link"
 import { Search, Heart, Share2, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "⚡ How It Works - Super Easy Pet Getting! ⚡",
-  description: "🎉 Learn how to claim your adoptme pet in just 3 SUPER easy steps! Quick, fun, and totally FREE! 🐾",
+  title: "How It Works - Super Easy Pet Getting!",
+  description: "Learn how to claim your adoptme pet in just 3 SUPER easy steps! Quick, fun, and totally FREE! 🐾",
 }
 
 const steps = [
