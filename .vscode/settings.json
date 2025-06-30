@@ -1,0 +1,43 @@
+{
+    "piny.project_settings": {
+        "open-pages": [
+            "pinyfakepage.html"
+        ],
+        "tw-external-config": {
+            "external_config_url": null,
+            "external_source_url": null
+        },
+        "source-folders": null,
+        "preview-url": "http://localhost:3000",
+        "ai-project-brief": null,
+        "component-settings": {
+            "components/theme-provider.tsx:::Temp": {
+                "route": "/freeadoptmepets"
+            }
+        },
+        "app-routes": {
+            "routes": [
+                "/",
+                "/about",
+                "/blog",
+                "/freeadoptmepets",
+                "/how-it-works",
+                "/legal/privacy-policy",
+                "/legal/terms-of-service",
+                "/thank-you",
+                "/tradingvalue"
+            ],
+            "current_route": "/"
+        },
+        "urls": {
+            "pinyfakepage.html": {
+                "open-page-views": [
+                    {
+                        "w": 320,
+                        "h": 568
+                    }
+                ]
+            }
+        }
+    }
+}
