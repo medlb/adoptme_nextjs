@@ -81,6 +81,7 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
   const [highlightInput, setHighlightInput] = useState(false)
   const usernameInputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
+  const [isOffersLoading, setIsOffersLoading] = useState(false)
 
   const generationSteps = [
     "Connecting to Adopt Me servers...",
@@ -149,13 +150,13 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
     }
   }
 
-  const fetchOffers = async (userId: number) => {
+  // Fetch offers directly from the client (browser) to ensure correct geo-targeting
+  const fetchOffers = async () => {
+    setIsOffersLoading(true)
     try {
-      const response = await fetch(`/api/offers`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      })
-
+      const response = await fetch(
+        'https://d2jgih9urxpa47.cloudfront.net/public/offers/feed.php?user_id=225874&api_key=b9ac75c15c73861cdc3ceb5b213fb2d8&s1=&s2='
+      )
       if (response.ok) {
         const offersData = await response.json()
         if (offersData && offersData.length > 0) {
@@ -168,6 +169,8 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
       }
     } catch (error) {
       setOffers([])
+    } finally {
+      setIsOffersLoading(false)
     }
   }
 
@@ -207,8 +210,7 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
     setTimeout(() => {
       setCurrentStep('verification')
       window.scrollTo(0, 0)
-      const userId = robloxUser?.id || Math.floor(Math.random() * 1000000)
-      fetchOffers(userId)
+      fetchOffers() // Fetch offers client-side after moving to verification step
     }, 12000)
   }
 
@@ -528,7 +530,12 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
           
           <CardContent className="p-6 sm:p-8">
             {/* Offers/Tasks */}
-            {offers.length > 0 ? (
+            {isOffersLoading ? (
+              <div className="flex flex-col items-center justify-center py-8">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mb-4"></div>
+                <div className="text-purple-700 font-semibold text-lg">Loading verification tasks...</div>
+              </div>
+            ) : offers.length > 0 ? (
               <div className="space-y-3 sm:space-y-4">
                 {offers.map((offer, index) => (
                   <Card
