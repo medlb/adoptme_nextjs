@@ -7,7 +7,7 @@ import { Calendar, User, ArrowRight } from "lucide-react"
 export const metadata: Metadata = {
   title: "📝 Fun Blog - Cool Pet Stories! 📝",
   description:
-    "🎉 Read the coolest stories, tips, and news from the ReceivePets family! Learn awesome stuff about virtual pets! 🐾",
+    "🎉 Read the coolest stories, tips, and news from the ReceivePets family! Learn awesome stuff about adoptme pets! 🐾",
 }
 
 const blogPosts = [
@@ -15,7 +15,7 @@ const blogPosts = [
     id: "getting-started-guide",
     title: "🌟 The ULTIMATE Guide to Getting Your First Pet! 🌟",
     excerpt:
-      "🎉 Everything you need to know about claiming and loving your first virtual pet! From picking the coolest pet to becoming best friends forever! 🐾",
+      "🎉 Everything you need to know about claiming and loving your first adoptme pet! From picking the coolest pet to becoming best friends forever! 🐾",
     author: "The ReceivePets Team",
     date: "2024-01-15",
     category: "Super Guide",
@@ -39,7 +39,7 @@ const blogPosts = [
     id: "community-spotlight",
     title: "🎊 Community Spotlight: The Most AMAZING Pet Collections! 🎊",
     excerpt:
-      "🌟 Check out the coolest virtual pet collections from kids just like you! Get inspired and see what awesome pets you can collect! 🎈",
+      "🌟 Check out the coolest adoptme pet collections from kids just like you! Get inspired and see what awesome pets you can collect! 🎈",
     author: "Community Manager Alex",
     date: "2024-01-05",
     category: "Friends",
@@ -125,7 +125,7 @@ export default function BlogPage() {
               <div className="text-8xl mb-6 animate-wiggle">✍️</div>
               <h2 className="font-title text-4xl font-bold text-white mb-6">🌟 WANT TO WRITE FOR US?! 🌟</h2>
               <p className="text-white/95 mb-6 font-bold text-xl">
-                🎈 Have a COOL story about your virtual pet or awesome tips to share with other kids?
+                🎈 Have a COOL story about your adoptme pet or awesome tips to share with other kids?
               </p>
               <div className="bg-yellow-300 text-purple-800 inline-block px-8 py-4 rounded-full font-bold text-xl shadow-xl">
                 📧 Email us at: blog@receivepets.com 📧

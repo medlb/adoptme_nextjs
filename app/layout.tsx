@@ -21,15 +21,20 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: "🐾 ReceivePets - Claim Your Super Cute Virtual Pet! 🌟",
+    default: "ReceivePets - Claim and Check Adoptme Pets",
     template: "%s | ReceivePets 🐾",
   },
   description:
-    "🎉 Discover and claim AMAZING virtual pets! Join thousands of kids and pet lovers in our super fun virtual pet adoption adventure! 🐶🐱🦄",
-  keywords: ["virtual pet", "cute pets", "kids games", "pet adoption", "fun games", "digital pets", "adopt me pets"],
+    "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
+  keywords: ["free adopt me pets", "adopt me pets value", "adopt me pets free", "buy adopt me pets", "adopt me pets trade", "how to get free pets in adopt me​", "adopt me free pets"],
   authors: [{ name: "ReceivePets Team" }],
   creator: "ReceivePets",
   publisher: "ReceivePets",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   robots: {
     index: true,
     follow: true,
@@ -46,29 +51,28 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://receivepets.com",
     siteName: "ReceivePets",
-    title: "🐾 ReceivePets - Claim Your Super Cute Virtual Pet! 🌟",
+    title: "ReceivePets - ReceivePets - Claim and Check Adoptme Pets",
     description:
-      "🎉 Discover and claim AMAZING virtual pets! Join thousands of kids and pet lovers in our super fun virtual pet adoption adventure! 🐶🐱🦄",
+      "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ReceivePets - Virtual Pet Adoption",
+        alt: "ReceivePets - adoptme Pet Adoption",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "🐾 ReceivePets - Claim Your Super Cute Virtual Pet! 🌟",
+    title: "ReceivePets - ReceivePets - Claim and Check Adoptme Pets",
     description:
-      "🎉 Discover and claim AMAZING virtual pets! Join thousands of kids and pet lovers in our super fun virtual pet adoption adventure! 🐶🐱🦄",
+      "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
     images: ["/images/og-image.jpg"],
   },
   verification: {
     google: "your-google-verification-code",
-  },
-    generator: 'v0.dev'
+  }
 }
 
 export default function RootLayout({

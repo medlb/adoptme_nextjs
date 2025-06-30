@@ -104,7 +104,7 @@ export function CallToAction() {
             </div>
             
             <p className="text-white/90 font-bold text-lg mt-6">
-              🌟 Join the most fun virtual pet community ever! 🌟
+              🌟 Join the most fun adoptme pet community ever! 🌟
             </p>
           </div>
         </div>

@@ -30,7 +30,7 @@ export default function ThankYouPage() {
   const handleShare = () => {
     const shareText = claimData?.robloxUser
       ? `🎉 I just claimed ${claimData.pet.name} on ReceivePets! My Roblox avatar ${claimData.robloxUser.username} now has the COOLEST pet ever! 🐾`
-      : `🎉 I just claimed ${claimData?.pet.name} on ReceivePets! Check out my AWESOME new virtual pet! 🐾`
+      : `🎉 I just claimed ${claimData?.pet.name} on ReceivePets! Check out my AWESOME new adoptme pet! 🐾`
 
     if (navigator.share && claimData) {
       navigator.share({

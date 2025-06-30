@@ -30,7 +30,7 @@ const features = [
     icon: Users,
     emoji: "👫",
     title: "TONS OF FRIENDS!",
-    description: "Join thousands of kids who love their virtual pets! Make friends and have fun! 🎈",
+    description: "Join thousands of kids who love their adoptme pets! Make friends and have fun! 🎈",
     color: "from-purple-400 to-pink-400",
     gradient: "bg-gradient-to-r from-purple-100 to-pink-100",
   },
@@ -55,7 +55,7 @@ export function Features() {
               🌟 WHY KIDS LOVE US! 🌟
             </h2>
             <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-purple-600 max-w-2xl sm:max-w-4xl mx-auto font-bold animate-slide-in-up stagger-1">
-              We make getting virtual pets SUPER easy and SUPER fun! 🎊
+              We make getting adoptme pets SUPER easy and SUPER fun! 🎊
             </p>
           </div>
         </div>
@@ -131,7 +131,7 @@ export function Features() {
 
               </div>
               <p className="text-base xs:text-lg sm:text-xl text-purple-700 font-bold">
-                🌟 Be part of the most fun virtual pet community ever! 🌟
+                🌟 Be part of the most fun adoptme pet community ever! 🌟
               </p>
             </div>
           </div>

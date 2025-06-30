@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
               <p className="text-gray-600 mb-4">
-                At ReceivePets, we collect minimal information to provide our virtual pet adoption service:
+                At ReceivePets, we collect minimal information to provide our adoptme pet adoption service:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Username you provide when claiming a pet</li>
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">How We Use Your Information</h2>
               <p className="text-gray-600 mb-4">We use the collected information to:</p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Process your virtual pet claims</li>
+                <li>Process your adoptme pet claims</li>
                 <li>Improve our website and user experience</li>
                 <li>Ensure the security of our platform</li>
                 <li>Communicate important updates about our service</li>

@@ -11,7 +11,7 @@ const blogPosts = [
     id: "getting-started-guide",
     title: "🌟 The ULTIMATE Guide to Getting Your First Pet! 🌟",
     excerpt:
-      "🎉 Everything you need to know about claiming and loving your first virtual pet! From picking the coolest pet to becoming best friends forever! 🐾",
+      "🎉 Everything you need to know about claiming and loving your first adoptme pet! From picking the coolest pet to becoming best friends forever! 🐾",
     author: "The ReceivePets Team",
     date: "2024-01-15",
     category: "Super Guide",
@@ -19,9 +19,9 @@ const blogPosts = [
     emoji: "📚",
     color: "from-purple-400 to-pink-400",
     content: `
-      <h2>🎉 Welcome to the AMAZING World of Virtual Pets! 🎉</h2>
+      <h2>🎉 Welcome to the AMAZING World of adoptme Pets! 🎉</h2>
       
-      <p>Hey there, pet lovers! Are you ready to start your incredible journey with virtual pets? This guide will show you everything you need to know to get your very first pet and become the best pet parent ever! 🌟</p>
+      <p>Hey there, pet lovers! Are you ready to start your incredible journey with adoptme pets? This guide will show you everything you need to know to get your very first pet and become the best pet parent ever! 🌟</p>
       
       <h3>🐾 Step 1: Choose Your Perfect Pet! 🐾</h3>
       <p>First things first - you need to pick your new best friend! We have so many amazing pets to choose from:</p>
@@ -181,7 +181,7 @@ const blogPosts = [
     id: "community-spotlight",
     title: "🎊 Community Spotlight: The Most AMAZING Pet Collections! 🎊",
     excerpt:
-      "🌟 Check out the coolest virtual pet collections from kids just like you! Get inspired and see what awesome pets you can collect! 🎈",
+      "🌟 Check out the coolest adoptme pet collections from kids just like you! Get inspired and see what awesome pets you can collect! 🎈",
     author: "Community Manager Alex",
     date: "2025-04-05",
     category: "Friends",
@@ -191,7 +191,7 @@ const blogPosts = [
     content: `
       <h2>🌟 Meet Our Amazing Pet Collectors! 🌟</h2>
       
-      <p>Welcome to our very first Community Spotlight! Today we're celebrating the incredible pet collections from kids just like you who love virtual pets as much as we do! 🎉</p>
+      <p>Welcome to our very first Community Spotlight! Today we're celebrating the incredible pet collections from kids just like you who love adoptme pets as much as we do! 🎉</p>
       
       <h3>👑 Emma's Magical Menagerie 👑</h3>
       <p><strong>Age:</strong> 9 years old<br>
@@ -382,7 +382,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </div>
               <div className="flex flex-wrap gap-2">
                 <Badge className="bg-purple-100 text-purple-800 font-bold px-3 py-1 rounded-full">
-                  🐾 Virtual Pets
+                  🐾 adoptme Pets
                 </Badge>
                 <Badge className="bg-pink-100 text-pink-800 font-bold px-3 py-1 rounded-full">
                   🎮 Gaming

@@ -9,7 +9,7 @@ const faqs = [
   {
     id: 1,
     question: "Are the pets really FREE?",
-    answer: "Yes! All our virtual pets are 100% FREE! No hidden costs, no tricks - just pure fun! We believe every kid deserves to have an amazing virtual pet friend! 🎉",
+    answer: "Yes! All our adoptme pets are 100% FREE! No hidden costs, no tricks - just pure fun! We believe every kid deserves to have an amazing adoptme pet friend! 🎉",
     icon: "💖"
   },
   {
@@ -21,7 +21,7 @@ const faqs = [
   {
     id: 3,
     question: "Can I have more than one pet?",
-    answer: "Absolutely! You can adopt as many pets as you want! Each pet is unique and special, so why not have a whole family of virtual friends? 🏠",
+    answer: "Absolutely! You can adopt as many pets as you want! Each pet is unique and special, so why not have a whole family of adoptme friends? 🏠",
     icon: "🏠"
   },
   {
@@ -39,19 +39,19 @@ const faqs = [
   {
     id: 6,
     question: "Can I play with my pet?",
-    answer: "Of course! Your virtual pets love to play! They can dance, sing, fly, swim, and do all sorts of fun activities! They're always ready for an adventure! 🎊",
+    answer: "Of course! Your adoptme pets love to play! They can dance, sing, fly, swim, and do all sorts of fun activities! They're always ready for an adventure! 🎊",
     icon: "🎊"
   },
   {
     id: 7,
     question: "Do I need to feed or take care of my pet?",
-    answer: "Nope! These are magical virtual pets that don't need feeding or cleaning. They're always happy and healthy, ready to play whenever you want! ✨",
+    answer: "Nope! These are magical adoptme pets that don't need feeding or cleaning. They're always happy and healthy, ready to play whenever you want! ✨",
     icon: "✨"
   },
   {
     id: 8,
     question: "Can I share my pets with friends?",
-    answer: "Yes! You can show off your amazing pets to all your friends! They'll be so jealous of your cool virtual pet collection! 🌟",
+    answer: "Yes! You can show off your amazing pets to all your friends! They'll be so jealous of your cool adoptme pet collection! 🌟",
     icon: "🌟"
   }
 ]
@@ -83,7 +83,7 @@ export function FAQ() {
               🤔 Frequently Asked Questions! 🤔
             </h2>
             <p className="text-lg sm:text-xl text-purple-600 max-w-3xl mx-auto font-bold animate-slide-in-up stagger-1">
-              🌟 Got questions? We've got answers! Everything you need to know about adopting your perfect virtual pet! 🎉
+              🌟 Got questions? We've got answers! Everything you need to know about adopting your perfect adoptme pet! 🎉
             </p>
           </div>
         </div>

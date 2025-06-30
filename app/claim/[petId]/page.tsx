@@ -30,17 +30,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
       title: `Claim ${pet.name} | ReceivePets 🐾`,
-      description: `🎉 Claim your ${pet.name} virtual pet today! Join thousands of happy kids and get your FREE pet now!`,
-      keywords: [`${pet.name}`, "virtual pet", "free pet", "pet adoption", "roblox pet", "kids game"],
+      description: `🎉 Claim your ${pet.name} adoptme pet today! Join thousands of happy kids and get your FREE pet now!`,
+      keywords: [`${pet.name}`, "adoptme pet", "free pet", "pet adoption", "roblox pet", "kids game"],
       openGraph: {
         title: `Claim ${pet.name} | ReceivePets 🐾`,
-        description: `🎉 Claim your ${pet.name} virtual pet today!`,
+        description: `🎉 Claim your ${pet.name} adoptme pet today!`,
         images: [
           {
             url: pet.image ? `https://elvebredd.com${pet.image}` : "/placeholder.svg",
             width: 300,
             height: 300,
-            alt: `${pet.name} - ${pet.rarity || 'Virtual Pet'}`,
+            alt: `${pet.name} - ${pet.rarity || 'adoptme Pet'}`,
           },
         ],
         type: "website",
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       twitter: {
         card: "summary_large_image",
         title: `Claim ${pet.name} | ReceivePets 🐾`,
-        description: `🎉 Claim your ${pet.name} virtual pet today!`,
+        description: `🎉 Claim your ${pet.name} adoptme pet today!`,
         images: [pet.image ? `https://elvebredd.com${pet.image}` : "/placeholder.svg"],
       },
     }

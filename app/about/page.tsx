@@ -4,7 +4,7 @@ import { Heart, Users, Sparkles, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "🌟 About Us - The Coolest Pet Team Ever! 🌟",
-  description: "🎉 Learn about ReceivePets and our super fun mission to make virtual pet adoption AMAZING for kids! 🐾",
+  description: "🎉 Learn about ReceivePets and our super fun mission to make adoptme pet adoption AMAZING for kids! 🐾",
 }
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
       <div className="relative max-w-3xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-8 mt-8">
         <h1 className="font-title text-2xl sm:text-4xl font-bold text-purple-800 mb-4 sm:mb-6 text-center">About ReceivePets</h1>
         <p className="text-base sm:text-lg text-purple-700 leading-relaxed mb-4">
-          ReceivePets is a magical place where kids and pet lovers can claim super cute virtual pets for FREE! Our mission is to make virtual pet adoption fun, safe, and accessible for everyone. 🎉
+          ReceivePets is a magical place where kids and pet lovers can claim super cute adoptme pets for FREE! Our mission is to make adoptme pet adoption fun, safe, and accessible for everyone. 🎉
         </p>
         <p className="text-base sm:text-lg text-purple-700 leading-relaxed mb-4">
           We believe every child deserves a fun and friendly digital companion. That's why we offer a huge variety of adorable pets, exciting quests, and a safe, welcoming community. 🦄

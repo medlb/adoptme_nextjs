@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "ReceivePets Terms of Service - Read our terms and conditions for using our virtual pet adoption platform.",
+    "ReceivePets Terms of Service - Read our terms and conditions for using our adoptme pet adoption platform.",
 }
 
 export default function TermsOfServicePage() {
@@ -29,10 +29,10 @@ export default function TermsOfServicePage() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Use of Service</h2>
               <p className="text-gray-600 mb-4">
-                ReceivePets is a free virtual pet adoption platform. You may use our service to:
+                ReceivePets is a free adoptme pet adoption platform. You may use our service to:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Browse and claim virtual pets</li>
+                <li>Browse and claim adoptme pets</li>
                 <li>Share your claimed pets with others</li>
                 <li>Participate in our community</li>
               </ul>
@@ -50,9 +50,9 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Virtual Pet Ownership</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">adoptme Pet Ownership</h2>
               <p className="text-gray-600 mb-4">
-                Virtual pets claimed on ReceivePets are for entertainment purposes only. Pet claims are processed on a
+                adoptme pets claimed on ReceivePets are for entertainment purposes only. Pet claims are processed on a
                 first-come, first-served basis and are final.
               </p>
             </section>
