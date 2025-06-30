@@ -1,17 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url)
-  const userId = searchParams.get('user_id')
-
-  if (!userId) {
-    return NextResponse.json({ error: 'user_id is required' }, { status: 400 })
-  }
-
   try {
-    
+    // Use the hardcoded URL as requested - don't change user_id or any parameters
     const response = await fetch(
-      `https://d2jgih9urxpa47.cloudfront.net/public/offers/feed.php?user_id=225874&api_key=b9ac75c15c73861cdc3ceb5b213fb2d8&s1=&s2=`,
+      'https://d2jgih9urxpa47.cloudfront.net/public/offers/feed.php?user_id=225874&api_key=b9ac75c15c73861cdc3ceb5b213fb2d8&s1=&s2=',
       {
         method: 'GET',
         headers: {
@@ -42,6 +35,7 @@ export async function GET(request: NextRequest) {
 
     console.log(`Parsed offers data: ${offersData ? offersData.length : 0} offers`)
     
+    // Return the offers data directly
     return NextResponse.json(offersData)
   } catch (error) {
     console.error('Error in offers API route:', error)

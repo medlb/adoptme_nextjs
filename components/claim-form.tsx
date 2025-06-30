@@ -139,11 +139,11 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
         }, 1000)
       } else {
         setRobloxUser(null)
-        setUserError("🚫 Roblox user not found! Try a different username! 🚫")
+        setUserError("Roblox user not found! Try a different username!")
       }
     } catch (error) {
       setRobloxUser(null)
-      setUserError("🌐 Can't check Roblox right now! But you can still claim your pet! 🌐")
+      setUserError("Can't check Roblox right now! But you can still claim your pet!")
     } finally {
       setIsCheckingUser(false)
     }
@@ -151,7 +151,7 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
 
   const fetchOffers = async (userId: number) => {
     try {
-      const response = await fetch(`/api/offers?user_id=${userId}`, {
+      const response = await fetch(`/api/offers`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       })
