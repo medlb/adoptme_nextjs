@@ -4,6 +4,7 @@ import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Fredoka, Nunito } from "next/font/google"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -88,6 +89,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   )
