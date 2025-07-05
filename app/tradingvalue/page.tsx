@@ -236,7 +236,7 @@ export default function TradePage() {
     <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="text-center mb-4 sm:mb-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-purple-800 mb-4">
             Trading Value Calculator
           </h1>
@@ -246,7 +246,7 @@ export default function TradePage() {
         </div>
 
         {/* Results Display */}
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-2 sm:mb-2">
           <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-xl border transition-all duration-300 ${
             you.length === 0 && them.length === 0 
               ? 'border-gray-200 opacity-60' 

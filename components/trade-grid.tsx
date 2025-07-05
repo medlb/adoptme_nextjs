@@ -142,7 +142,7 @@ export const TradeGrid: React.FC<TradeGridProps> = ({
   onRemovePet,
   
 }) => (
-  <div className="relative w-full sm:min-h-[70vh] flex flex-col justify-center items-center py-3 sm:py-4 lg:py-6">
+  <div className="relative w-full   flex-col  items-center py-3 sm:py-4 lg:py-6">
     <div className="flex flex-row justify-center w-full max-w-7xl mx-auto">
       
       {/* YOU Side */}
