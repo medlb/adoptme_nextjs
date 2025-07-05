@@ -6,17 +6,20 @@ import { Footer } from "@/components/footer"
 import { Fredoka, Nunito } from "next/font/google"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
+import { PerformanceMonitor } from "@/components/performance-monitor"
 
 const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-fredoka",
+  display: "swap",
 })
 
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-nunito",
+  display: "swap",
 })
 
 // Remove the Inter import and use the Google Fonts from CSS
@@ -84,6 +87,54 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Critical CSS to prevent layout shifts */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Prevent layout shifts during font loading */
+            body {
+              font-display: swap;
+            }
+            
+            /* Ensure navigation height is consistent */
+            nav {
+              height: 64px !important;
+              min-height: 64px !important;
+            }
+            
+            /* Prevent image layout shifts */
+            img {
+              max-width: 100%;
+              height: auto;
+              display: block;
+            }
+            
+            /* Ensure aspect ratios are maintained */
+            .aspect-square {
+              aspect-ratio: 1 / 1;
+            }
+            
+            /* Prevent content jumping */
+            .prevent-cls {
+              min-height: 0;
+              min-width: 0;
+              overflow: hidden;
+            }
+            
+            /* Skeleton loading states */
+            .skeleton {
+              background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+              background-size: 200% 100%;
+              animation: shimmer 1.5s ease-in-out infinite;
+            }
+            
+            @keyframes shimmer {
+              0% { background-position: -200% 0; }
+              100% { background-position: 200% 0; }
+            }
+          `
+        }} />
+      </head>
       <body className={`bg-fun-pattern ${fredoka.variable} ${nunito.variable}`}>
         <div className="min-h-screen flex flex-col">
           <Navigation />
@@ -92,6 +143,7 @@ export default function RootLayout({
         </div>
         <SpeedInsights />
         <Analytics />
+        <PerformanceMonitor />
       </body>
     </html>
   )

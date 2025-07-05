@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Sparkles, Heart, ArrowRightLeft , Star, Gift } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
   return (
@@ -8,10 +9,46 @@ export function Hero() {
       {/* Enhanced floating elements with better positioning */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Decorative elements: consider hiding some on xs screens if performance is an issue */}
-        <div className="absolute top-10 left-10 w-10 h-10 sm:w-16 sm:h-16  animate-gentle-float opacity-80 "><img src="stickers/Bee_Sticker.webp" alt="Adopt Me" className=" object-cover" /></div>
-        <div className="absolute top-24 right-8 w-8 h-8 sm:top-32 sm:right-32 sm:w-12 sm:h-12  animate-soft-bounce opacity-80 "><img src="stickers/Dragon_Breath_Animated_Sticker.webp" alt="Adopt Me" className=" object-cover" /></div>
-        <div className="absolute bottom-24 left-8 w-12 h-12 sm:bottom-32 sm:left-32 sm:w-20 sm:h-20  animate-smooth-wiggle opacity-80 "><img src="stickers/New_Fallow_Deer_sticker.webp" alt="Adopt Me" className=" object-cover" /></div>
-        <div className="absolute bottom-10 right-10 w-10 h-10 sm:bottom-20 sm:right-20 sm:w-14 sm:h-14  animate-gentle-float opacity-80 "><img src="stickers/New_Penguin_sticker.webp" alt="Adopt Me" className=" object-cover" /></div>
+        <div className="absolute top-10 left-10 w-10 h-10 sm:w-16 sm:h-16 animate-gentle-float opacity-80">
+          <Image 
+            src="/stickers/Bee_Sticker.webp" 
+            alt="Adopt Me" 
+            width={64}
+            height={64}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
+        <div className="absolute top-24 right-8 w-8 h-8 sm:top-32 sm:right-32 sm:w-12 sm:h-12 animate-soft-bounce opacity-80">
+          <Image 
+            src="/stickers/Dragon_Breath_Animated_Sticker.webp" 
+            alt="Adopt Me" 
+            width={48}
+            height={48}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
+        <div className="absolute bottom-24 left-8 w-12 h-12 sm:bottom-32 sm:left-32 sm:w-20 sm:h-20 animate-smooth-wiggle opacity-80">
+          <Image 
+            src="/stickers/New_Fallow_Deer_sticker.webp" 
+            alt="Adopt Me" 
+            width={80}
+            height={80}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
+        <div className="absolute bottom-10 right-10 w-10 h-10 sm:bottom-20 sm:right-20 sm:w-14 sm:h-14 animate-gentle-float opacity-80">
+          <Image 
+            src="/stickers/New_Penguin_sticker.webp" 
+            alt="Adopt Me" 
+            width={56}
+            height={56}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
        
       </div>
 

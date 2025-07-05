@@ -22,8 +22,8 @@ export function Navigation() {
   }, [isOpen]);
 
   return (
-    <nav className="w-full z-50 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 left-0 right-0 h-14 sm:h-auto">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 h-14 sm:h-auto">
+    <nav className="w-full z-50 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 left-0 right-0 h-16">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 h-16">
         {/* Logo and main nav */}
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Enhanced logo */}

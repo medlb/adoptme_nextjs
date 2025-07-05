@@ -43,12 +43,45 @@
     @apply bg-background text-foreground;
     font-family: var(--font-nunito), sans-serif;
     line-height: 1.6;
+    /* Prevent layout shifts during font loading */
+    font-display: swap;
   }
 
   .font-title {
     font-family: var(--font-fredoka), sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
+    /* Prevent layout shifts during font loading */
+    font-display: swap;
+  }
+
+  /* Prevent layout shifts for images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Ensure consistent aspect ratios */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Prevent layout shifts for dynamic content */
+  .layout-stable {
+    contain: layout style paint;
+  }
+
+  /* Optimize for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -499,6 +532,81 @@ html {
   margin-left: clamp(1rem, 4vw, 2rem);
 }
 
+/* CLS Optimization Classes */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+.content-visibility-hidden {
+  content-visibility: hidden;
+}
+
+.contain-layout {
+  contain: layout;
+}
+
+.contain-style {
+  contain: style;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-strict {
+  contain: strict;
+}
+
+/* Prevent layout shifts for dynamic content */
+.prevent-cls {
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Image loading optimization */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.image-loaded {
+  animation: none;
+  background: none;
+}
+
+/* Skeleton loading states */
+.skeleton {
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-text {
+  height: 1em;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
 /* Claim form specific animations - Simplified */
 @keyframes progress-shimmer {
   0% {
@@ -531,5 +639,77 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .animate-progress-shimmer {
     animation: none;
+  }
+}
+
+/* Pet card loading animations */
+.pet-card-loading {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+  }
+}
+
+.pet-card-selected {
+  animation: selected-bounce 0.6s ease-out;
+}
+
+@keyframes selected-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Loading overlay animations */
+.loading-overlay {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Button loading state */
+.button-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer-button 1.5s infinite;
+}
+
+@keyframes shimmer-button {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
   }
 }

@@ -3,13 +3,34 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
-import Image from "next/image"
+import { OptimizedImage } from "@/components/ui/image"
 import { Badge } from "@/components/ui/badge"
-import { Heart, Zap, Search, ChevronDown } from "lucide-react"
+import { Heart, Zap, Search, ChevronDown, Loader2 } from "lucide-react"
 import React, { useEffect, useState, useRef, useCallback } from "react"
 
 const PETS_API_URL = "https://elvebredd.com/data/Pets.json"
 const PAGE_SIZE = 20
+
+// Skeleton component for loading states
+const PetCardSkeleton = () => (
+  <Card className="group relative overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-purple-200 rounded-3xl shadow-lg">
+    <CardContent className="relative p-4 sm:p-6 flex flex-col items-center">
+      {/* Image skeleton */}
+      <div className="relative mb-4 w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-3 shadow-inner">
+        <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl"></div>
+      </div>
+      
+      {/* Text skeleton */}
+      <div className="w-full text-center space-y-3">
+        <div className="h-6 bg-gray-200 animate-pulse rounded mx-auto w-3/4"></div>
+        <div className="h-6 bg-gray-200 animate-pulse rounded mx-auto w-1/2"></div>
+      </div>
+      
+      {/* Button skeleton */}
+      <div className="mt-4 w-full h-10 bg-gray-200 animate-pulse rounded-xl"></div>
+    </CardContent>
+  </Card>
+)
 
 export function PetGrid() {
   const [pets, setPets] = useState<any[]>([])
@@ -18,6 +39,7 @@ export function PetGrid() {
   const [search, setSearch] = useState("")
   const [displayCount, setDisplayCount] = useState(PAGE_SIZE)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [selectedPetId, setSelectedPetId] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null)
 
@@ -73,6 +95,35 @@ export function PetGrid() {
     pet.name.toLowerCase().includes(debouncedSearch.toLowerCase())
   )
 
+  // Handle pet selection with loading state
+  const handlePetSelection = (petId: string) => {
+    setSelectedPetId(petId)
+    
+    // Clear the loading state after a short delay to allow navigation
+    // This prevents the loading state from persisting if navigation is fast
+    setTimeout(() => {
+      setSelectedPetId(null)
+    }, 3000) // Clear after 3 seconds as a fallback
+  }
+
+  // Handle navigation start
+  const handleNavigationStart = (petId: string) => {
+    setSelectedPetId(petId)
+  }
+
+  // Handle navigation end (when component unmounts or navigation completes)
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      setSelectedPetId(null)
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+      setSelectedPetId(null)
+    }
+  }, [])
+
   // Infinite scroll handler
   const handleScroll = useCallback(() => {
     if (loading || isLoadingMore) return
@@ -104,14 +155,27 @@ export function PetGrid() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-20">
-        <div className="relative">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-purple-200 border-t-purple-600"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+      <section id="pets" className="py-8 sm:py-10 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header skeleton */}
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="h-12 bg-gray-200 animate-pulse rounded mx-auto w-1/2 mb-4"></div>
+            <div className="h-6 bg-gray-200 animate-pulse rounded mx-auto w-3/4"></div>
+          </div>
+          
+          {/* Search skeleton */}
+          <div className="mb-8 sm:mb-12 flex justify-center">
+            <div className="h-12 bg-gray-200 animate-pulse rounded-2xl w-full max-w-md"></div>
+          </div>
+          
+          {/* Grid skeleton */}
+          <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <PetCardSkeleton key={index} />
+            ))}
           </div>
         </div>
-      </div>
+      </section>
     )
   }
   
@@ -173,60 +237,88 @@ export function PetGrid() {
 
         {/* Pet Grid */}
         <div ref={containerRef} className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8">
-          {filteredPets.slice(0, displayCount).map((pet, index) => (
-            <Card
-              key={pet.id}
-              className="group relative overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-purple-200 hover:border-pink-400 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-              tabIndex={0}
-              aria-label={`Pet card: ${pet.name}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Card background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <CardContent className="relative p-4 sm:p-6 flex flex-col items-center">
-                {/* Image container */}
-                <div className="relative mb-4 w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-3 shadow-inner">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-200/20 via-pink-200/20 to-blue-200/20 rounded-2xl"></div>
-                  <Image
-                    src={pet.image}
-                    alt={pet.name}
-                    width={160}
-                    height={160}
-                    className="relative z-10 rounded-xl object-contain w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = "/placeholder.svg"
-                    }}
-                  />
-                </div>
+          {filteredPets.slice(0, displayCount).map((pet, index) => {
+            const isSelected = selectedPetId === pet.id
+            
+            return (
+              <Card
+                key={pet.id}
+                className={`group relative overflow-hidden bg-white/90 backdrop-blur-sm border-2 border-purple-200 hover:border-pink-400 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer ${
+                  isSelected ? 'ring-4 ring-purple-400 ring-opacity-50 pet-card-loading pet-card-selected' : ''
+                }`}
+                tabIndex={0}
+                aria-label={`Pet card: ${pet.name}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Card background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Loading overlay */}
+                {isSelected && (
+                  <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-20 flex items-center justify-center rounded-3xl loading-overlay">
+                    <div className="text-center">
+                      <Loader2 className="w-8 h-8 animate-spin text-purple-600 mx-auto mb-2" />
+                      <p className="text-purple-700 font-semibold text-sm">Loading...</p>
+                    </div>
+                  </div>
+                )}
+                
+                <CardContent className="relative p-4 sm:p-6 flex flex-col items-center h-full">
+                  {/* Image container */}
+                  <div className="relative mb-3 w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-2 shadow-inner flex-shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200/20 via-pink-200/20 to-blue-200/20 rounded-2xl"></div>
+                    <OptimizedImage
+                      src={pet.image}
+                      alt={pet.name}
+                      width={160}
+                      height={160}
+                      className="relative z-10 rounded-xl w-full h-full transition-transform duration-500 group-hover:scale-110 object-contain"
+                      priority={index < 8} // Prioritize first 8 images
+                      fallbackSrc="/placeholder.svg"
+                    />
+                  </div>
 
-                {/* Pet info */}
-                <div className="w-full text-center space-y-3">
-                  <h3 className="font-bold text-lg sm:text-xl text-gray-800 group-hover:text-purple-700 transition-colors duration-300 truncate">
-                    {pet.name}
-                  </h3>
-                  
-                  <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                    <Zap className="w-4 h-4 mr-1" />
-                    Rarity: {pet.rvalueNoPotion}
-                  </Badge>
-                </div>
+                  {/* Pet info */}
+                  <div className="w-full text-center space-y-2 flex-1 flex flex-col justify-center">
+                    <h3 className="font-bold text-lg sm:text-xl text-gray-800 group-hover:text-purple-700 transition-colors duration-300 truncate">
+                      {pet.name}
+                    </h3>
+                    
+                    {/* Smaller, more subtle rarity badge */}
+                    <div className="flex items-center justify-center space-x-1 text-xs text-gray-600">
+                      <Zap className="w-3 h-3 text-yellow-500" />
+                      <span className="font-medium">Rarity: {pet.rvalueNoPotion}</span>
+                    </div>
+                  </div>
 
-                {/* Claim button */}
-                <Button 
-                  asChild 
-                  size="sm" 
-                  className="mt-4 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  <Link href={`/claim/${pet.id}`}>
-                    <Heart className="w-4 h-4 mr-2" />
-                    Claim Pet
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                  {/* Claim button */}
+                  <Button 
+                    asChild 
+                    size="sm" 
+                    className={`mt-3 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex-shrink-0 ${
+                      isSelected ? 'button-loading' : ''
+                    }`}
+                    onClick={() => handlePetSelection(pet.id)}
+                    disabled={isSelected}
+                  >
+                    <Link href={`/claim/${pet.id}`}>
+                      {isSelected ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Loading...
+                        </>
+                      ) : (
+                        <>
+                          <Heart className="w-4 h-4 mr-2" />
+                          Claim Pet
+                        </>
+                      )}
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
 
         {/* Loading indicator for auto-load */}
