@@ -142,8 +142,8 @@ export const TradeGrid: React.FC<TradeGridProps> = ({
   onRemovePet,
   
 }) => (
-  <div className="relative w-full sm:min-h-[70vh] flex justify-center items-start py-3 sm:py-4 lg:py-6">
-    <div className="flex flex-row justify-center  w-full max-w-7xl mx-auto">
+  <div className="relative w-full sm:min-h-[70vh] flex flex-col justify-center items-center py-3 sm:py-4 lg:py-6">
+    <div className="flex flex-row justify-center w-full max-w-7xl mx-auto">
       
       {/* YOU Side */}
       <div className="flex-1 max-w-[220px] sm:max-w-[260px] md:max-w-[300px] lg:max-w-[340px]">
@@ -185,6 +185,12 @@ export const TradeGrid: React.FC<TradeGridProps> = ({
       </div>
     </div>
     
+    {/* Copyright Notice */}
+    <div className="mt-4 sm:mt-6 lg:mt-8 text-center">
+      <p className="text-xs sm:text-sm text-gray-500 font-medium tracking-wide">
+        © 2025 receivepets.com. All rights reserved.
+      </p>
+    </div>
   </div>
   
 );    

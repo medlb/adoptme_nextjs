@@ -5,11 +5,12 @@ import type { Metadata } from "next"
 const PETS_API_URL = "https://elvebredd.com/data/Pets.json"
 
 type Props = {
-  params: { petId: string }
+  params: Promise<{ petId: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
+    const { petId } = await params
     const res = await fetch(PETS_API_URL)
     if (!res.ok) {
       return {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
     
     const data = await res.json()
-    const pet = data[params.petId]
+    const pet = data[petId]
 
     if (!pet) {
       return {
@@ -62,13 +63,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ClaimPage({ params }: Props) {
   try {
+    const { petId } = await params
     const res = await fetch(PETS_API_URL)
     if (!res.ok) {
       notFound()
     }
     
     const data = await res.json()
-    const pet = data[params.petId]
+    const pet = data[petId]
 
     if (!pet) {
       notFound()
@@ -113,7 +115,7 @@ export default async function ClaimPage({ params }: Props) {
           <div className="max-w-5xl mx-auto">
            
 
-            <ClaimForm pet={petWithDefaults} petId={params.petId} />
+            <ClaimForm pet={petWithDefaults} petId={petId} />
           </div>
         </div>
       </div>
