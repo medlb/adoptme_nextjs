@@ -3,7 +3,7 @@ import { Heart, Twitter, Github, Mail, Star, Gift, Sparkles, ArrowRight, Zap, Sh
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-purple-900 via-purple-800 to-pink-800 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-purple-900 via-purple-800 to-pink-800 text-white relative overflow-hidden min-h-[200px]">
 
       {/* Main content with enhanced styling */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">

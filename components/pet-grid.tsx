@@ -155,7 +155,7 @@ export function PetGrid() {
 
   if (loading) {
     return (
-      <section id="pets" className="py-8 sm:py-10 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+      <section id="pets" className="py-8 sm:py-10 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden min-h-screen">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header skeleton */}
           <div className="text-center mb-8 sm:mb-12">
@@ -194,9 +194,9 @@ export function PetGrid() {
   }
 
   return (
-    <section id="pets" className="py-8 sm:py-10 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+    <section id="pets" className="py-8 sm:py-10 md:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden min-h-screen">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute top-40 left-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
@@ -266,15 +266,13 @@ export function PetGrid() {
                 <CardContent className="relative p-4 sm:p-6 flex flex-col items-center h-full">
                   {/* Image container */}
                   <div className="relative mb-3 w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-2 shadow-inner flex-shrink-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200/20 via-pink-200/20 to-blue-200/20 rounded-2xl"></div>
-                    <OptimizedImage
-                      src={pet.image}
-                      alt={pet.name}
-                      width={160}
-                      height={160}
-                      className="relative z-10 rounded-xl w-full h-full transition-transform duration-500 group-hover:scale-110 object-contain"
-                      priority={index < 8} // Prioritize first 8 images
-                      fallbackSrc="/placeholder.svg"
+                    
+                    <img 
+                      src={pet.image} 
+                      alt={pet.name} 
+                      className="w-full h-full  transition-transform duration-300  z-10  object-scale-down" 
+                      loading="lazy"
+                      
                     />
                   </div>
 

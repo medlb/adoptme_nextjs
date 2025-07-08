@@ -212,7 +212,7 @@ export const PetSelectionModal: React.FC<PetSelectionModalProps> = ({
             <div className="flex justify-between items-center">
               <div className="flex-1 min-w-0">
                 <h2 className="text-xl sm:text-2xl font-bold mb-1 truncate">Choose Your Pet</h2>
-                <p className="text-blue-100 text-xs sm:text-sm hidden sm:block">Select the perfect companion for your adventure</p>
+                
               </div>
               <button 
                 onClick={onClose} 

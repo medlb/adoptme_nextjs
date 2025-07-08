@@ -5,9 +5,9 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="h-screen relative overflow-x-hidden overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-40 lg:py-12 sm:py-20 md:py-32">
+    <section className="h-screen min-h-screen relative overflow-x-hidden overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-40 lg:py-12 sm:py-20 md:py-32">
       {/* Enhanced floating elements with better positioning */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {/* Decorative elements: consider hiding some on xs screens if performance is an issue */}
         <div className="absolute top-10 left-10 w-10 h-10 sm:w-16 sm:h-16 animate-gentle-float opacity-80">
           <Image 
