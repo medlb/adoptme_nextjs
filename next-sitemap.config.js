@@ -1,0 +1,52 @@
+const fs = require('fs');
+const path = require('path');
+
+// Blog posts are hardcoded in app/blog/[slug]/page.tsx
+const blogPosts = [
+  {
+    id: "getting-started-guide",
+    date: "2024-01-15",
+  },
+  {
+    id: "pet-rarity-explained",
+    date: "2025-01-10",
+  },
+  {
+    id: "community-spotlight",
+    date: "2025-04-05",
+  },
+];
+
+// Main pages (add or remove as needed)
+const mainPages = [
+  '/',
+  '/about',
+  '/how-it-works',
+  '/blog',
+  '/free-adopt-me-pets',
+  '/adopt-me-wfl',
+  '/thank-you',
+  '/claim',
+  '/legal',
+];
+
+const today = new Date().toISOString().split('T')[0];
+
+module.exports = {
+  siteUrl: 'https://receivepets.com', // Updated to real domain
+  generateRobotsTxt: true,
+  exclude: ['/api/*'],
+  additionalPaths: async (config) => {
+    // Blog posts
+    const blogPaths = blogPosts.map(post => ({
+      loc: `/blog/${post.id}`,
+      lastmod: post.date,
+    }));
+    // Main pages
+    const mainPaths = mainPages.map(page => ({
+      loc: page,
+      lastmod: today,
+    }));
+    return [...mainPaths, ...blogPaths];
+  },
+}; 
