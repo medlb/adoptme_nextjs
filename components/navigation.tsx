@@ -44,7 +44,7 @@ export function Navigation() {
             <span>Home</span>
           </Link>
           <Link
-            href="/tradingvalue"
+            href="/adopt-me-wfl"
             className="flex items-center space-x-2 text-purple-700 hover:text-pink-600 transition-all duration-300 font-bold text-lg group hover:scale-105"
           >
             <Calculator className="h-5 w-5 group-hover:animate-bounce-fun" />
@@ -77,7 +77,7 @@ export function Navigation() {
             asChild
             className="btn-bubbly bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-purple-800 font-bold text-base sm:text-lg font-title px-4 sm:px-6 py-2 sm:py-3 shadow-lg hover:shadow-xl"
           >
-            <Link href="/freeadoptmepets" className="flex items-center space-x-2">
+            <Link href="/free-adopt-me-pets" className="flex items-center space-x-2">
               <Sparkles className="h-5 w-5" />
               <span>GET A FREE PET! 🐶</span>
             </Link>
@@ -117,7 +117,7 @@ export function Navigation() {
               <span>Home</span>
             </Link>
             <Link
-              href="/tradingvalue"
+              href="/adopt-me-wfl"
               className="flex items-center space-x-2 px-3 py-3 text-purple-700 hover:text-pink-600 transition-all duration-300 font-bold text-base sm:text-lg rounded-2xl hover:bg-gradient-to-r hover:from-pink-100 hover:to-purple-100 group"
               onClick={() => setIsOpen(false)}
             >
@@ -155,7 +155,7 @@ export function Navigation() {
                 asChild
                 className="w-full btn-bubbly bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-purple-800 font-bold text-base sm:text-lg font-title py-3 sm:py-4 shadow-lg hover:shadow-xl"
               >
-                <Link href="/freeadoptmepets" onClick={() => setIsOpen(false)} className="flex items-center justify-center space-x-2">
+                <Link href="/free-adopt-me-pets" onClick={() => setIsOpen(false)} className="flex items-center justify-center space-x-2">
                   <Sparkles className="h-5 w-5" />
                   <span>GET A FREE PET! 🐶</span>
                 </Link>
