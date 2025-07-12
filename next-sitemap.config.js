@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+
 // Blog posts are hardcoded in app/blog/[slug]/page.tsx
 const blogPosts = [
   {
@@ -33,6 +34,7 @@ const today = new Date().toISOString().split('T')[0];
 module.exports = {
   siteUrl: 'https://receivepets.com', // Updated to real domain
   generateRobotsTxt: true,
+  generateIndexSitemap: false,
   exclude: ['/api/*'],
   additionalPaths: async (config) => {
     // Blog posts
