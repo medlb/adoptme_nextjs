@@ -20,14 +20,12 @@ const blogPosts = [
 // Main pages (add or remove as needed)
 const mainPages = [
   '/',
-  '/about',
-  '/how-it-works',
-  '/blog',
   '/free-adopt-me-pets',
   '/adopt-me-wfl',
-  '/thank-you',
-  '/claim',
-  '/legal',
+  '/about',
+  '/blog',
+  '/legal/terms-of-service',
+  '/legal/privacy-policy',
 ];
 
 const today = new Date().toISOString().split('T')[0];

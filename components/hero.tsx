@@ -75,7 +75,7 @@ export function Hero() {
               size="lg"
               className="w-full xs:w-auto btn-magical bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 hover:from-pink-500 hover:via-purple-500 hover:to-blue-500 text-white px-6 sm:px-12 py-4 sm:py-6 sm:text-xl md:text-2xl font-extrabold shadow-2xl hover:shadow-3xl text-base"
             >
-              <Link href="/freeadoptmepets" className="">
+              <Link href="/free-adopt-me-pets" className="">
                 <Heart className="mr-2 sm:mr-3 h-5 w-5 sm:h-8 sm:w-8 animate-scale-pulse" />
                 FREE ADOPT ME PETS
               </Link>
@@ -87,7 +87,7 @@ export function Hero() {
               size="lg"
               className="w-full xs:w-auto btn-magical border-4 border-yellow-400 bg-gradient-to-r from-yellow-100 to-orange-100 text-purple-700 hover:from-yellow-200 hover:to-orange-200 px-6 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl md:text-2xl font-bold shadow-2xl hover:shadow-3xl"
             >
-              <Link href="/tradingvalue">
+              <Link href="/adopt-me-wfl">
                 <ArrowRightLeft className="mr-2 sm:mr-3 h-5 w-5 sm:h-8 sm:w-8 " />
                 Trade Calculator
               </Link>

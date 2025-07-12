@@ -65,13 +65,7 @@ export function Navigation() {
             <Info className="h-5 w-5 group-hover:animate-bounce-fun" />
             <span>About</span>
           </Link>
-          <Link
-            href="/how-it-works"
-            className="flex items-center space-x-2 text-purple-700 hover:text-pink-600 transition-all duration-300 font-bold text-lg group hover:scale-105"
-          >
-            <Zap className="h-5 w-5 group-hover:animate-bounce-fun" />
-            <span>How It Works</span>
-          </Link> */}
+           */}
           
           <Button
             asChild
@@ -140,14 +134,7 @@ export function Navigation() {
               <Info className="h-5 w-5 group-hover:animate-bounce-fun" />
               <span>About</span>
             </Link>
-            <Link
-              href="/how-it-works"
-              className="flex items-center space-x-3 px-4 py-4 text-purple-700 hover:text-pink-600 transition-all duration-300 font-bold text-lg rounded-2xl hover:bg-gradient-to-r hover:from-pink-100 hover:to-purple-100 group"
-              onClick={() => setIsOpen(false)}
-            >
-              <Zap className="h-5 w-5 group-hover:animate-bounce-fun" />
-              <span>How It Works</span>
-            </Link> */}
+            */}
             
            
             <div className="px-1 py-2">

@@ -50,17 +50,7 @@ export function CallToAction() {
             </Link>
           </Button>
 
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="btn-bubbly border-4 border-white text-white hover:bg-white hover:text-purple-600 px-12 py-6 text-xl sm:text-2xl font-bold font-title shadow-2xl hover:shadow-3xl group"
-          >
-            <Link href="/how-it-works" className="flex items-center space-x-3">
-              <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 animate-sparkle" />
-              <span>⚡ LEARN HOW! ⚡</span>
-            </Link>
-          </Button>
+          
         </div>
 
         {/* Enhanced social proof section */}

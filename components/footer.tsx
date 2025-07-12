@@ -25,8 +25,8 @@ export function Footer() {
               {[
                 { href: "/", label: "🏠 Home", icon: "🏠" },
                 { href: "/about", label: "ℹ️ About Us", icon: "ℹ️" },
-                { href: "/how-it-works", label: "⚡ How It Works", icon: "⚡" },
-                { href: "/blog", label: "📝 Fun Blog", icon: "📝" }
+                
+                { href: "/blog", label: "📝 Blog", icon: "📝" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
