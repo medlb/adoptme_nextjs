@@ -126,22 +126,33 @@ export function ClaimForm({ pet, petId }: ClaimFormProps) {
     setRobloxUser(null)
 
     try {
-      const response = await fetch(`https://rbxback.fun/search_user/${inputUsername.trim()}`)
+      // Use our API endpoint to avoid CORS issues
+      const response = await fetch('/api/roblox-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: inputUsername.trim() }),
+      })
 
-      if (response.ok) {
-        const userData: RobloxUser = await response.json()
-        setRobloxUser(userData)
-        setShowSuccess(true)
-        setTimeout(() => setShowSuccess(false), 2000)
-        // Move directly to next step after successful check
-        setTimeout(() => {
-          setCurrentStep('confirm')
-          window.scrollTo(0, 0)
-        }, 1000)
-      } else {
-        setRobloxUser(null)
-        setUserError("Roblox user not found! Try a different username!")
+      if (!response.ok) {
+        const errorData = await response.json()
+        if (response.status === 404) {
+          setRobloxUser(null)
+          setUserError("Roblox user not found! Try a different username!")
+        } else {
+          throw new Error(errorData.error || 'Failed to check user')
+        }
+        return
       }
+
+      const robloxUserData: RobloxUser = await response.json()
+      setRobloxUser(robloxUserData)
+      setShowSuccess(true)
+      setTimeout(() => setShowSuccess(false), 2000)
+      // Move directly to next step after successful check
+      setTimeout(() => {
+        setCurrentStep('confirm')
+        window.scrollTo(0, 0)
+      }, 1000)
     } catch (error) {
       setRobloxUser(null)
       setUserError("Can't check Roblox right now! But you can still claim your pet!")
