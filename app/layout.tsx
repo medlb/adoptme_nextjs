@@ -26,7 +26,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: "ReceivePets - Claim and Check Adoptme Pets",
+    default: "ReceivePets - Check and Claim free Adoptme Pets",
     template: "%s | ReceivePets 🐾",
   },
   description:
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "5NDZFIy2moA7Nq6yT7m2f0WKlULDMuLap43NJw5mw28",
   }
 }
 
