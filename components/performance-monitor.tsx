@@ -7,6 +7,95 @@ interface PerformanceMetrics {
   lcp: number
   fid: number
   ttfb: number
+  fcp: number
+  inp: number
+}
+
+// SEO-focused performance optimizations
+export const SEOPerformanceOptimizer = () => {
+  useEffect(() => {
+    // Prefetch critical resources
+    const prefetchResources = () => {
+      const criticalResources = [
+        '/images/og-image.jpg',
+        '/favicon.ico'
+      ]
+      
+      criticalResources.forEach(resource => {
+        const link = document.createElement('link')
+        link.rel = 'prefetch'
+        link.href = resource
+        document.head.appendChild(link)
+      })
+    }
+
+    // Optimize images for SEO
+    const optimizeImages = () => {
+      const images = document.querySelectorAll('img:not([loading])')
+      images.forEach((img: Element) => {
+        const image = img as HTMLImageElement
+        if (image.getBoundingClientRect().top > window.innerHeight * 2) {
+          image.loading = 'lazy'
+        }
+        
+        // Add alt text if missing for SEO
+        if (!image.alt && image.src.includes('pet')) {
+          image.alt = 'Adopt Me Pet - ReceivePets'
+        }
+      })
+    }
+
+    // Monitor Core Web Vitals for SEO
+    const monitorCoreWebVitals = () => {
+      // Track LCP for SEO ranking
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        const lastEntry = entries[entries.length - 1]
+        console.log('LCP:', lastEntry.startTime)
+      }).observe({ entryTypes: ['largest-contentful-paint'] })
+
+      // Track FID/INP for user experience
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries() as any[]
+        entries.forEach((entry: any) => {
+          console.log('FID:', entry.processingStart - entry.startTime)
+        })
+      }).observe({ entryTypes: ['first-input'] })
+
+      // Track CLS for visual stability
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries() as any[]
+        let clsValue = 0
+        entries.forEach((entry: any) => {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value
+          }
+        })
+        console.log('CLS:', clsValue)
+      }).observe({ entryTypes: ['layout-shift'] })
+    }
+
+    prefetchResources()
+    optimizeImages()
+    monitorCoreWebVitals()
+
+    // Re-run image optimization when new content loads
+    const observer = new MutationObserver(optimizeImages)
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => observer.disconnect()
+  }, [])
+
+  return null
+}
+
+interface PerformanceMetrics {
+  cls: number
+  lcp: number
+  fid: number
+  ttfb: number
+  fcp: number
+  inp: number
 }
 
 export const PerformanceMonitor = () => {
@@ -78,6 +167,8 @@ export const PerformanceMonitor = () => {
         lcp: Math.round(lcpValue),
         fid: Math.round(fidValue),
         ttfb: Math.round(ttfbValue),
+        fcp: 0,
+        inp: 0,
       })
     }, 1000)
 

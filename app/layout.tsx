@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+
 import { Fredoka, Nunito } from "next/font/google"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -26,15 +27,33 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: "ReceivePets - Check and Claim free Adoptme Pets",
+    default: "ReceivePets - Get Free Adopt Me Pets & WFL Calculator | #1 Adopt Me Site 🐾",
     template: "%s | ReceivePets 🐾",
   },
   description:
-    "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
-  keywords: ["free adopt me pets", "adopt me pets value", "adopt me pets free", "buy adopt me pets", "adopt me pets trade", "how to get free pets in adopt me​", "adopt me free pets"],
+    "🎉 Get FREE Adopt Me pets & use our advanced WFL calculator! Claim legendary pets, rare pets & exclusive pets for free. Check trade values with our Adopt Me calculator. Join 100,000+ satisfied players getting free pets daily!",
+  keywords: [
+    "free adopt me pets", 
+    "adopt me wfl calculator", 
+    "adopt me pets free", 
+    "adopt me trade calculator", 
+    "free pets adopt me", 
+    "adopt me pet values", 
+    "adopt me pets giveaway", 
+    "adopt me calculator", 
+    "adopt me pets 2025", 
+    "roblox adopt me pets", 
+    "adopt me pets worth", 
+    "legendary pets free", 
+    "rare pets adopt me", 
+    "adopt me trading", 
+    "receivepets"
+  ],
   authors: [{ name: "ReceivePets Team" }],
   creator: "ReceivePets",
   publisher: "ReceivePets",
+  category: "Gaming",
+  classification: "Games, Virtual Pets, Trading Calculator",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -56,25 +75,35 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://receivepets.com",
     siteName: "ReceivePets",
-    title: "ReceivePets - ReceivePets - Claim and Check Adoptme Pets",
+    title: "ReceivePets - Get Free Adopt Me Pets & WFL Calculator",
     description:
-      "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
+      "🎉 Get FREE Adopt Me pets & use our advanced WFL calculator! Claim legendary pets, rare pets & exclusive pets for free. Join 100,000+ satisfied players getting free pets daily!",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ReceivePets - adoptme Pet Adoption",
+        alt: "ReceivePets - Free Adopt Me Pets and WFL Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ReceivePets - ReceivePets - Claim and Check Adoptme Pets",
+    site: "@ReceivePets",
+    creator: "@ReceivePets",
+    title: "ReceivePets - Get Free Adopt Me Pets & WFL Calculator",
     description:
-      "🎉 Discover and claim AMAZING adoptme pets! Join thousands of kids and pet lovers in our super fun adoptme pet adoption adventure! ",
+      "🎉 Get FREE Adopt Me pets & use our advanced WFL calculator! Claim legendary pets, rare pets & exclusive pets for free. Join 100,000+ players!",
     images: ["/images/og-image.jpg"],
   },
+  applicationName: "ReceivePets",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#8B5CF6" },
+    { media: "(prefers-color-scheme: dark)", color: "#7C3AED" }
+  ],
   verification: {
     google: "5NDZFIy2moA7Nq6yT7m2f0WKlULDMuLap43NJw5mw28",
   }
@@ -85,9 +114,53 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ReceivePets",
+    "description": "Get FREE Adopt Me pets & use our advanced WFL calculator! The #1 destination for free Adopt Me pets and trading calculations.",
+    "url": "https://receivepets.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://receivepets.com/free-adopt-me-pets?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ReceivePets",
+      "url": "https://receivepets.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://receivepets.com/images/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "ReceivePets WFL Calculator",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  };
+
   return (
     <html lang="en">
       <head>
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
+        
         {/* Critical CSS to prevent layout shifts */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -138,6 +211,7 @@ export default function RootLayout({
       <body className={`bg-fun-pattern ${fredoka.variable} ${nunito.variable}`}>
         <div className="min-h-screen flex flex-col">
           <Navigation />
+          
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

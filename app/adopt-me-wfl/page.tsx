@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import type { Metadata } from "next";
 import { TradeGrid, PetSelection } from "../../components/trade-grid";
 import { PetSelectionModal, PetFromAPI } from "../../components/pet-selection-modal";
 import { preloadImages } from "../../lib/image-cache";
@@ -327,4 +328,4 @@ export default function TradePage() {
       />
     </main>
   );
-} 
+}

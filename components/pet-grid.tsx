@@ -209,8 +209,8 @@ export function PetGrid() {
             Free Adopt Me Pets
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Discover a magical collection of super cute pets! Claim your favorite for FREE and start your adventure. New pets added every week!
-          </p>
+            Welcome to <strong>free Adopt Me pets</strong>! Discover hundreds of rare, legendary, 
+            and exclusive pets that you can claim absolutely free.    </p>
         </div>
 
         {/* Search Bar */}

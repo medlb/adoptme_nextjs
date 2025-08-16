@@ -5,9 +5,37 @@ import Link from "next/link"
 import { Calendar, User, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "📝 Fun Blog - Cool Pet Stories! 📝",
-  description:
-    "🎉 Read the coolest stories, tips, and news from the ReceivePets family! Learn awesome stuff about adoptme pets! 🐾",
+  title: "Adopt Me Blog - Tips, Guides & News | ReceivePets 📝",
+  description: "📚 Read the latest Adopt Me guides, tips, and news! Learn about pet values, trading strategies, rare pets, and get insider tips from the ReceivePets community. Stay updated with Adopt Me!",
+  keywords: [
+    "adopt me blog",
+    "adopt me guides", 
+    "adopt me tips",
+    "adopt me news",
+    "adopt me pet guides",
+    "adopt me trading tips",
+    "adopt me strategies",
+    "roblox adopt me blog",
+    "adopt me tutorials",
+    "adopt me pet care"
+  ],
+  openGraph: {
+    title: "Adopt Me Blog - Tips, Guides & News",
+    description: "📚 Read the latest Adopt Me guides, tips, and news! Learn about pet values, trading strategies, and get insider tips from the community.",
+    type: "website",
+    url: "https://receivepets.com/blog",
+    images: [
+      {
+        url: "/images/blog-og.jpg", 
+        width: 1200,
+        height: 630,
+        alt: "Adopt Me Blog - Tips, Guides & News",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://receivepets.com/blog",
+  },
 }
 
 const blogPosts = [
